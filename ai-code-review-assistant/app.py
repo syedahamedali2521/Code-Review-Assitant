@@ -3,8 +3,7 @@ from streamlit_lottie import st_lottie
 import functions.static_analysis as sa
 import functions.utils as utils
 import json
-from dotenv import load_dotenv
-load_dotenv()
+
 
 # Page config
 st.set_page_config(page_title="Code Review Assistant", page_icon="🔍", layout="wide")
