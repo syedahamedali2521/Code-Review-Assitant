@@ -1,9 +1,6 @@
 import streamlit as st
-from streamlit_lottie import st_lottie
 import functions.static_analysis as sa
 import functions.utils as utils
-import json
-
 
 # Page config
 st.set_page_config(page_title="Code Review Assistant", page_icon="🔍", layout="wide")
@@ -80,17 +77,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ================================
-# Load Lottie Animations
-# ================================
-animation1 = utils.load_lottie_animation("assets/animation1.json")
-animation2 = utils.load_lottie_animation("assets/animation1.json")
-
-# ================================
 # TITLE
 # ================================
-st.title("Code Review Assistant (Static Only)")
-
-
+st.title("🔍 Code Review Assistant (Static Analysis Only)")
 st.markdown("Upload or paste your Python or JavaScript code for static analysis!")
 
 # ================================
@@ -151,7 +140,7 @@ if code:
                     st.warning(f"Code quality: {score}/100")
 
     # ================================
-    # RESULTS — ONLY STATIC NOW
+    # RESULTS — STATIC ANALYSIS
     # ================================
     if 'analysis' in st.session_state:
         st.header("📊 Static Analysis Results")
@@ -161,4 +150,3 @@ if code:
         else:
             for key, value in results.items():
                 st.write(f"**{key.replace('_', ' ').title()}:** {value}")
-
